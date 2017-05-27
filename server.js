@@ -9,7 +9,7 @@ app.set('port',port);
 
 app.use('/',router);
 
-app.get('/',(req,res)=>{
+/*app.get('/',(req,res)=>{
   res.end("hello");
-});
+});*/
 app.listen(port,console.log("Server is listen to port",app.get('port')));
