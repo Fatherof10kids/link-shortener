@@ -31,7 +31,7 @@ route.get('/new/*',(req,res)=>{
       db.collection('urls').insert({"_id": doc.value.sequence_value , "long-url": input_url } ,(err,result)=>{   // url_id is key of doc in counters collection
           var resObj = {
             "long-url" : input_url,
-            "short-url" : req.headers.host+'/' + encryptor.encode(doc.value.sequence_value)
+            "short-url" : 'https://'+req.headers.host+'/' + encryptor.encode(doc.value.sequence_value)
           }
           res.json(resObj);
           db.close();
