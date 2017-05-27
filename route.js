@@ -1,7 +1,16 @@
 var express = require('express');
 var encryptor = require('./encryptor.js');
 var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://localhost:27017/url';
+var url = process.env.MONGOLAB_URI||'mongodb://localhost:27017/url'; // SET MONGOLAB_URI="mongodb://username:password@ds01316.mlab.com:1316/<database_name> to hide your username and password
+//console.log(process.env.MONGOLAB_URI);
+// if username and password in mlab contains either @ symbol  edit like this
+/*MongoClient.connect("mongodb://username:p%40ssword@host:port/dbname", {
+    uri_decode_auth: true
+    }, function(err, db) {
+
+    }
+);
+*/
 var route = express.Router();
 
 // _id auto incremented
